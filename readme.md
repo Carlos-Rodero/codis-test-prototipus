@@ -2,14 +2,14 @@
 
 Aquest repositori està dividit en carpetes. Cadascuna d'elles té el codi per provar les funcionalitats del prototipus. Les carpetes són les següents:
 
-* [LED](##LED)
-* [WLAN](##WLAN)
-* [Bluetooth](##Bluetooth)
-* [RTC](##RTC)
-* [Deep Sleep](##Deep Sleep)
-* [Battery voltage](##Battery voltage)
-* [SD](##SD)SD
-* [GPS](##GPS)
+* [LED](#LED)
+* [WLAN](#WLAN)
+* [Bluetooth](#Bluetooth)
+* [RTC](#RTC)
+* [Deep_Sleep](#Deep Sleep)
+* [Battery_voltage](#Battery voltage)
+* [SD](#SD)
+* [GPS](#GPS)
 
 ## LED
 
