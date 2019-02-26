@@ -6,8 +6,8 @@ Aquest repositori està dividit en carpetes. Cadascuna d'elles té el codi per p
 * [WLAN](#WLAN)
 * [Bluetooth](#Bluetooth)
 * [RTC](#RTC)
-* [Deep_Sleep](#Deep Sleep)
-* [Battery_voltage](#Battery voltage)
+* [Deep Sleep](#Deep Sleep)
+* [Battery voltage](#Battery voltage)
 * [SD](#SD)
 * [GPS](#GPS)
 
