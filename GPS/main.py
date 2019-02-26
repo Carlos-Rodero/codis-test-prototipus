@@ -1,12 +1,12 @@
 import machine
 import pycom
-import os
 import time
 from micropyGPS import MicropyGPS
 from pytrack import Pytrack
 from machine import RTC, I2C
 
 
+""" SET UP """
 time_searching_GPS = 30
 
 data_gps = {}
@@ -15,8 +15,8 @@ data_gps['longitude'] = None
 data_gps['altitude'] = None
 data_gps['hdop'] = None
 
-# Heartbeat LED flashes in blue colour once every 4s to signal that the system is alive
-# Turn off firmware blinking
+# Heartbeat LED flashes in blue colour once every 4s to signal that the system
+# is alive. Turn off firmware blinking
 pycom.heartbeat(False)
 
 # RTC
@@ -46,12 +46,14 @@ def get_lat_lon_datetime_gps(time_searching_GPS):
     def check_for_valid_coordinates(gps):
         '''
         Given a MicropyGPS object, this function checks if valid coordinate
-        data has been parsed successfully. If so, copies it over to global last_data.
+        data has been parsed successfully. If so, copies it over to global 
+        last_data.
         '''
         if gps.satellite_data_updated() and gps.valid:
 
             timestamp_list = gps.timestamp
-            time = (timestamp_list[0], timestamp_list[1], int(timestamp_list[2]), 0, 0)
+            time = (timestamp_list[0], timestamp_list[1],
+                    int(timestamp_list[2]), 0, 0)
 
             date_list = gps.date
             date = (2000 + date_list[2], date_list[1], (date_list[0]))
@@ -74,7 +76,9 @@ def get_lat_lon_datetime_gps(time_searching_GPS):
             last_data['altitude'] = alt
             last_data['hdop'] = hdop
 
-            if last_data['datetime'] is not 0 and last_data['latitude'] is not 0 and last_data['longitude'] is not 0:
+            if (last_data['datetime'] is not 0) and \
+               (last_data['latitude'] is not 0) and \
+               (last_data['longitude'] is not 0):
                 return True
             else:
                 return False
@@ -99,7 +103,8 @@ def get_lat_lon_datetime_gps(time_searching_GPS):
         if elapsed > GPS_TIMEOUT_SECS:
             break
 
-    if 'latitude' in last_data and 'longitude' in last_data and 'datetime' in last_data:
+    if ('latitude' in last_data) and ('longitude' in last_data) \
+       and ('datetime' in last_data):
         i2c.deinit()
         return last_data
     else:
@@ -115,8 +120,9 @@ def get_lat_lon_datetime_gps(time_searching_GPS):
 def set_datetime():
     if data_gps['datetime'] is not 0:
         rtc.init(data_gps['datetime'])
+        return rtc.now()
     else:
-        rtc.init()
+        return 0
 
 
 """ CODE """
@@ -124,7 +130,6 @@ def set_datetime():
 for i in range(100):
     time.sleep_ms(1000)
     data_gps = get_lat_lon_datetime_gps(time_searching_GPS)
-    print("latitude: {}, longitude: {}".format(data_gps['latitude'], data_gps["longitude"]))
-    set_datetime()
-    print(rtc.now())
-
+    print("latitude: {}, longitude: {}".format(data_gps['latitude'],
+          data_gps["longitude"]))
+    print("time: {}".format(set_datetime()))
