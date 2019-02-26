@@ -2,11 +2,12 @@ import machine
 import pycom
 import time
 from micropyGPS import MicropyGPS
-from pytrack import Pytrack
 from machine import RTC, I2C
 
 
 """ SET UP """
+
+
 time_searching_GPS = 30
 
 data_gps = {}
@@ -22,10 +23,24 @@ pycom.heartbeat(False)
 # RTC
 rtc = RTC()
 
+
 """ FUNCTIONS """
 
 
 def get_lat_lon_datetime_gps(time_searching_GPS):
+    """Obtain latitude and longitude values from GPS
+
+    Parameters
+    ----------
+    time_searching_GPS: int
+        Seconds for searching the GPS
+
+    Return
+    ------
+    dict
+        Dictionary with GPS values
+
+    """
     GPS_TIMEOUT_SECS = time_searching_GPS
     # init I2C to P21/P22
     i2c = machine.I2C(0, mode=I2C.MASTER, pins=('P22', 'P21'))
@@ -46,7 +61,7 @@ def get_lat_lon_datetime_gps(time_searching_GPS):
     def check_for_valid_coordinates(gps):
         '''
         Given a MicropyGPS object, this function checks if valid coordinate
-        data has been parsed successfully. If so, copies it over to global 
+        data has been parsed successfully. If so, copies it over to global
         last_data.
         '''
         if gps.satellite_data_updated() and gps.valid:
@@ -59,18 +74,17 @@ def get_lat_lon_datetime_gps(time_searching_GPS):
             date = (2000 + date_list[2], date_list[1], (date_list[0]))
 
             datetime = tuple(date) + tuple(time)
+            date_std = "{}-{:02d}-{:02d}T{:02d}:{:02d}:{:02d}.{}+00:00".format(
+                datetime[0], datetime[1], datetime[2],
+                datetime[3], datetime[4], datetime[5],
+                datetime[6])
 
-            lat_list = gps.latitude_string().split("°")
-            lat = float(lat_list[0])
-
-            lon_list = gps.longitude_string().split("°")
-            lon = float(lon_list[0])
-
+            lat = gps.latitude_string()
+            lon = gps.longitude_string()
             alt = gps.altitude
-
             hdop = gps.hdop
 
-            last_data['datetime'] = datetime
+            last_data['datetime'] = date_std
             last_data['latitude'] = lat
             last_data['longitude'] = lon
             last_data['altitude'] = alt
@@ -117,19 +131,11 @@ def get_lat_lon_datetime_gps(time_searching_GPS):
         return last_data
 
 
-def set_datetime():
-    if data_gps['datetime'] is not 0:
-        rtc.init(data_gps['datetime'])
-        return rtc.now()
-    else:
-        return 0
-
-
 """ CODE """
+
 
 for i in range(100):
     time.sleep_ms(1000)
     data_gps = get_lat_lon_datetime_gps(time_searching_GPS)
-    print("latitude: {}, longitude: {}".format(data_gps['latitude'],
-          data_gps["longitude"]))
-    print("time: {}".format(set_datetime()))
+    print("latitude: {}, longitude: {}, datetime: {}".format(
+        data_gps['latitude'], data_gps["longitude"], data_gps["datetime"]))
