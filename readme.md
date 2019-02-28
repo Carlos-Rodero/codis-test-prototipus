@@ -2,26 +2,51 @@
 
 Aquest repositori està dividit en carpetes. Cadascuna d'elles té el codi per provar les funcionalitats del prototipus. Les carpetes són les següents:
 
-* [LED](#LED)
-* [WLAN](#WLAN)
-* [Bluetooth](#Bluetooth)
-* [RTC](#RTC)
-* [Deep Sleep](#Deep_Sleep)
-* [Battery voltage](#Battery_voltage)
+* [Pin](#Pin)
+* [Button](#Button)
+* [Accelerometer](#Accelerometer)
 * [SD](#SD)
 * [GPS](#GPS)
 
-## LED
 
-## WLAN
+## Pin
+Conté el codi per provar els Pins que actuen com a pins de sortida. 
+Aquest codi activa el pin durant 1 segon i desactiva el pin durant un altre segon. Ho fa repetidament 3 cops.  
+Cal canviar el valor de la variable "pin_name" en el codi pel Pin que estem provant (per exemple, 'P9').
+A continuació es mostra el llistat de pins:
 
-## Bluetooth
+El prototipus conté els següents pins:
+* pin_name = 'P0': Programming Rx
+* pin_name = 'P1': Programming Tx
+* pin_name = 'P2': On-board LED
+* pin_name = 'P3': PWR_EN, when pulled LOW, the pytrack will disconnect the lopy's power
+* pin_name = 'P4': SD card CMD
+* pin_name = 'P5': cellular modem
+* pin_name = 'P6': cellular modem
+* pin_name = 'P7': cellular modem
+* pin_name = 'P8': SD card DAT0
+* pin_name = 'P9': free
+* pin_name = 'P10': free
+* pin_name = 'P11': free
+* pin_name = 'P12': external/on-board wifi/bt antenna switch
+* pin_name = 'P13': input only, interrupt pin from Pytrack. Accelerometer
+* pin_name = 'P14': input only, Pytrack on-board button
+* pin_name = 'P15': input only
+* pin_name = 'P16': input only
+* pin_name = 'P17': input only
+* pin_name = 'P18': input only
+* pin_name = 'P19': free
+* pin_name = 'P20': free
+* pin_name = 'P21': Pytrack SCL
+* pin_name = 'P22': Pytrack SDA
+* pin_name = 'P23': SD card clk
 
-## RTC
 
-## Deep_Sleep
+## Button
 
-## Battery_voltage
+
+## Accelerometer
+
 
 ## SD
 Conté el codi per crear un arxiu .txt a la SD i mostrar per pantalla el contingut d'aquest arxiu. És necessari introduïr una tarjeta SD en format FAT16 o FAT32. 
