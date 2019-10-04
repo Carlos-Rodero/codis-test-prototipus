@@ -29,3 +29,25 @@ while True:
 
     if elapsed > timeout_secs:
         break
+
+
+""" Another code to test """
+
+""" 
+import time
+from machine import Pin
+import machine
+import pycom
+
+pycom.heartbeat(False)
+
+
+def toggle_rgbled_blue(arg):
+    pycom.rgbled(0xff)
+    time.sleep(2)
+    pycom.rgbled(0)
+
+
+button_blue = Pin('P14', mode=Pin.IN, pull=Pin.PULL_UP)
+button_blue.callback(Pin.IRQ_RISING, toggle_rgbled_blue)
+"""
