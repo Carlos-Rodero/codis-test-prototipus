@@ -7,6 +7,7 @@ Aquest repositori està dividit en carpetes. Cadascuna d'elles té el codi per p
 * [Accelerometer](#Accelerometer)
 * [SD](#SD)
 * [GPS](#GPS)
+* [Deep sleep](#Deep_sleep)
 
 
 ## Pin
@@ -40,7 +41,7 @@ Controla els següents pins:
 - P14: Button
 
 ## Accelerometer
-Conté el codi per mostrar per pantalla el pitch i el roll de l'acceleròmetre cada 100 ms durant 100 vegades.
+Conté el codi mostrar per pantalla el pitch i el roll de l'acceleròmetre cada 100 ms durant 100 vegades.
 Controla els següents pins:
 - P3: PWR_EN
 - P13: Accelerometer Interrupt
@@ -55,8 +56,10 @@ Controla els següents Pins:
 - P23: SD_CLK
 
 ## GPS
-Conté el codi per mostrar per pantalla la latitud, longitud i hora actual. Ho fa repetidament durant 100 vegades. Cada vegada triga 30 segons en intentar establir la connexió amb els satèl·lits. Per obtenir dades correctes el dispositiu ha d'estar a cel obert, sino mostrarà valors de latitud = 0, longitud = 0 i time = 0.
+Conté el codi per provar el GNSS Glonass GPS. El codi permet mostrar per pantalla la latitud, longitud i hora actual. Ho fa repetidament durant 100 vegades. Cada vegada triga 30 segons en intentar establir la connexió amb els satèl·lits. Per obtenir dades correctes el dispositiu ha d'estar a cel obert, sino mostrarà valors de latitud = 0, longitud = 0 i time = 0.
 Controla els següents Pins:
 - P3: PWR_EN
 - P22: SDA
 - P21: SCL
+
+## Deep sleep

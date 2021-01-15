@@ -8,7 +8,7 @@ from machine import RTC, I2C
 """ SET UP """
 
 
-time_searching_GPS = 30
+time_searching_GPS = 60
 
 data_gps = {}
 data_gps['latitude'] = None
@@ -120,6 +120,7 @@ def get_lat_lon_datetime_gps(time_searching_GPS):
     if ('latitude' in last_data) and ('longitude' in last_data) \
        and ('datetime' in last_data):
         i2c.deinit()
+        print(last_data)
         return last_data
     else:
         last_data['datetime'] = 0
@@ -128,13 +129,14 @@ def get_lat_lon_datetime_gps(time_searching_GPS):
         last_data['altitude'] = 0
         last_data['hdop'] = 0
         i2c.deinit()
+        print(last_data)
         return last_data
 
 
 """ CODE """
 
 
-for i in range(100):
+for i in range(100000):
     time.sleep_ms(1000)
     data_gps = get_lat_lon_datetime_gps(time_searching_GPS)
     print("latitude: {}, longitude: {}, datetime: {}".format(

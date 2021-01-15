@@ -1,6 +1,6 @@
 {
     "python.linting.pylintEnabled": false,
-    "python.linting.pep8Enabled": true,
-    "python.linting.pep8Args": ["--max-line-length=120" ],
+    "python.linting.pycodestyleEnabled": true,
+    "python.linting.pycodestyleArgs": ["--max-line-length=120" ],
     "python.linting.enabled": true
 }
