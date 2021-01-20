@@ -9,8 +9,8 @@ os.listdir('/sd')
 
 # try some standard file operations
 f = open('/sd/test.txt', 'w')
-f.write('Testing SD card write operations')
+f.write('Testing SD card write operations 5')
 f.close()
 f = open('/sd/test.txt', 'r')
-print(f.readall())
+print(f.read())
 f.close()

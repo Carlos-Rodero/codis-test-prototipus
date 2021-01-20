@@ -8,6 +8,9 @@ Aquest repositori està dividit en carpetes. Cadascuna d'elles té el codi per p
 * [SD](#SD)
 * [GPS](#GPS)
 * [Deep sleep](#Deep_sleep)
+* [Connector TCS34725](#Connector_TCS34725)
+* [GPS SD](#GPS_SD)
+* [UART](#UART)
 
 
 ## Pin
@@ -62,4 +65,29 @@ Controla els següents Pins:
 - P22: SDA
 - P21: SCL
 
+## GPS SD
+Igual que el codi de la carpeta GPD però guardant les dades a la SD, fet que permet deixar el dispositiu mesurant a cel obert.
+Controla els següents Pins:
+- P3: PWR_EN
+- P22: SDA
+- P21: SCL
+
 ## Deep sleep
+Conté el codi per entrar en deep sleep durant 60 segons i tornar a executar el mateix codi.
+Controla els següents pins:
+- P3: PWR_EN
+- P22: SDA
+- P21: SCL
+
+
+## Connector TCS34725
+Conté el codi per mostrar per pantalla els valors d'un sensor de llum que es connecta per I2C.
+Controla els següents pins (SDA a configurar pels pins disponibles):
+- P22: SDA
+- P21: SCL
+
+## UART
+Conté el codi per transmetre i escoltar missatge pel port RxTx. Necessita configurar-se a través del Port 0, en els Pins 1 i 0 (es desactiva el REPL)
+Controla els següents pins:
+- P1: Rx 
+- P0: Tx

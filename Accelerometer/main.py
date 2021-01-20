@@ -2,6 +2,7 @@ from LIS2HH12 import LIS2HH12
 from pytrack import Pytrack
 import time
 
+
 py = Pytrack()
 # init accelerometer
 acc = LIS2HH12()
