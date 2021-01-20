@@ -65,14 +65,14 @@ Controla els següents Pins:
 - P22: SDA
 - P21: SCL
 
-## GPS SD
+## GPS_SD
 Igual que el codi de la carpeta GPD però guardant les dades a la SD, fet que permet deixar el dispositiu mesurant a cel obert.
 Controla els següents Pins:
 - P3: PWR_EN
 - P22: SDA
 - P21: SCL
 
-## Deep sleep
+## Deep_sleep
 Conté el codi per entrar en deep sleep durant 60 segons i tornar a executar el mateix codi.
 Controla els següents pins:
 - P3: PWR_EN
@@ -80,7 +80,7 @@ Controla els següents pins:
 - P21: SCL
 
 
-## Connector TCS34725
+## Connector_TCS34725
 Conté el codi per mostrar per pantalla els valors d'un sensor de llum que es connecta per I2C.
 Controla els següents pins (SDA a configurar pels pins disponibles):
 - P22: SDA
