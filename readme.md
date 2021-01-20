@@ -7,9 +7,9 @@ Aquest repositori està dividit en carpetes. Cadascuna d'elles té el codi per p
 * [Accelerometer](#Accelerometer)
 * [SD](#SD)
 * [GPS](#GPS)
-* [Deep_sleep](#Deep sleep)
-* [Connector_TCS34725](#Connector TCS34725)
-* [GPS_SD](#GPS SD)
+* [Deep_sleep](#Deep_sleep)
+* [Connector_TCS34725](#Connector_TCS34725)
+* [GPS_SD](#GPS_SD)
 * [UART](#UART)
 
 
